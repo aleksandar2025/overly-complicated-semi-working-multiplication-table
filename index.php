@@ -23,7 +23,7 @@ echo "<table border=\"1\">";
             for ($c = 0; $c < $cols; $c++){
                 echo "<form method='POST' action='includes/calculator.php'>";
                 
-                echo "<td><button type='submit' value='$c, $operatorMultiply, $r' name='submit'>$c x $r</button></td>";
+                echo "<td><button type='submit' value='$c,$operatorMultiply,$r' name='submit'>$c x $r</button></td>";
                 
                 echo "</form>";
             }
@@ -36,9 +36,9 @@ echo "</table>";
 
 ?>
 
-<!--script for checking values-->
 
-<!--script to check value-->
+
+<!--SCRIPT TO CHECK VALUE-->
    <script type="text/javascript">
 // $("button[name='submit']").click(function(){
 // alert(this.value);
@@ -46,22 +46,44 @@ echo "</table>";
  </script>
 
 <?php
-//   code for checking values
+//  ===== CODE FOR CHECKING VALUES =====
    
     // $myString = $_POST['submit'];
     // $myArray = explode(',', $myString);
     // print_r($myArray);
+    
+    
     
     // $factor1 = $myArray[0];
     // $factor2 = $myArray[2];
     // $operator = $myArray[1]; 
     // $result = new Calculate($factor1, $factor2);
     
-    // $store = $result-> multiply();
+   
+    //  if(isset($operator) == "*"){
+    //      $store = $result-> multiply();
+    // } elseif(isset($operator) == "-") {
+    //      $store = $result-> subtract();
+    // } elseif(isset($operator) == "+"){
+    //      $store = $result-> add();
+    // } elseif(isset($operator) == "/"){
+    //      $store = $result-> divide();
+    // }
+    // if(empty($store)){
+    //     echo "empty";
+    // };
     // echo $store;
+
+    
+    // checking date values
+//     date_default_timezone_set("Europe/Sarajevo");
+//     $timestamp = time();
+//     echo strftime("the date today is %Y/%m/%d %H/%M/%S");
+
     // date_default_timezone_set("Europe/Sarajevo");
     // $timestamp = time();
     // echo strftime("the date today is %Y/%m/%d %H/%M/%S");
+
 ?>
 
 
