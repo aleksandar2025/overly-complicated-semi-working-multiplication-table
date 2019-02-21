@@ -17,8 +17,9 @@ if(!isset($_POST['submit'])) {
     $factor2 = $myArray[2];
     $operator = $myArray[1]; 
     $result = new Calculate($factor1, $factor2);
+   
     // this works but I don't understand why the if statements won't work
-    $storeMultiply = $result-> multiply();
+    // $store = $result-> multiply();
     
     // date config
     
@@ -26,38 +27,40 @@ if(!isset($_POST['submit'])) {
     $timestamp = time();
     $mysql_datetime = strftime("%Y-%m-%d %H:%M:%S");
     
-    // doesn't work for some reason 
+    // doesn't work as an example on how not to do it (function/variable scope issue)
     
     // switch($operator){
     //     case "+":
-    //         $store = $result-> add();
+    //          $store = $result-> add();
     //         break;
     //     case "-":
-    //         $store = $result-> subtract();
+    //          $store = $result-> subtract();
     //         break;
     //     case "*":
-    //         $store = $result-> multiply();
+    //          $store = $result-> multiply();
     //         break;
     //     case "/":
-    //         $store = $result-> divide();
+    //          $store = $result-> divide();
     //         break;
     // };
     
-    // if($operator == "*"){
-    //     $store = $result-> multiply();
-    // } elseif($operator == "-") {
-    //     $store = $result-> subtract();
-    // } elseif($operator == "+"){
-    //     $store = $result-> add();
-    // } elseif($operator == "/"){
-    //     $store = $result-> divide();
-    // }
+    // works
     
-    if(empty($factor1) || empty($factor2) || empty($operator) || empty($storeMultiply)){
+    if(isset($operator) == "*"){
+         $store = $result-> multiply();
+    } elseif(isset($operator) == "-") {
+         $store = $result-> subtract();
+    } elseif(isset($operator) == "+"){
+         $store = $result-> add();
+    } elseif(isset($operator) == "/"){
+         $store = $result-> divide();
+    }
+    
+    if(empty($factor1) || empty($factor2) || empty($operator) || empty($store) || empty($mysql_datetime)){
         
         header("Location: ../index.php?sql=error");
     } else {
-        $sql = "INSERT INTO multiplication (factor1, factor2, operation, result, date) VALUES ('$factor1', '$factor2', '$operator', '$storeMultiply', '$mysql_datetime');";
+        $sql = "INSERT INTO multiplication (factor1, factor2, operation, result, date) VALUES ('$factor1', '$factor2', '$operator', '$store', '$mysql_datetime');";
         mysqli_query($conn, $sql);
         
         header("Location: ../index.php?multiply=success");
