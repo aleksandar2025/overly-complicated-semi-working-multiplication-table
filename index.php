@@ -59,9 +59,9 @@ echo "</table>";
     
     // $store = $result-> multiply();
     // echo $store;
-    date_default_timezone_set("Europe/Sarajevo");
-   $timestamp = time();
-    echo strftime("the date today is %Y/%m/%d %H/%M/%S");
+    // date_default_timezone_set("Europe/Sarajevo");
+    // $timestamp = time();
+    // echo strftime("the date today is %Y/%m/%d %H/%M/%S");
 ?>
 
 
