@@ -16,11 +16,11 @@ echo "<table border=\"1\">";
     $operatorDivide = "/";
     // loop that echoes the entire table
     
-        for ($r = 0; $r < $rows; $r++){
+        for ($r = 1; $r < $rows; $r++){
             
             echo'<tr>';
 
-            for ($c = 0; $c < $cols; $c++){
+            for ($c = 1; $c < $cols; $c++){
                 echo "<form method='POST' action='includes/calculator.php'>";
                 
                 echo "<td><button type='submit' value='$c,$operatorMultiply,$r' name='submit'>$c x $r</button></td>";
