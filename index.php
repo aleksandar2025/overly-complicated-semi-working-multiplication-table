@@ -60,19 +60,21 @@ echo "</table>";
     // $result = new Calculate($factor1, $factor2);
     
    
-    //  if(isset($operator) == "*"){
-    //      $store = $result-> multiply();
-    // } elseif(isset($operator) == "-") {
-    //      $store = $result-> subtract();
-    // } elseif(isset($operator) == "+"){
+    //  if($operator == "+"){
     //      $store = $result-> add();
-    // } elseif(isset($operator) == "/"){
+    // } elseif($operator == "-") {
+    //      $store = $result-> subtract();
+    // } elseif($operator == "*"){
+    //      $store = $result-> multiply();
+    // } elseif($operator == "/"){
     //      $store = $result-> divide();
     // }
     // if(empty($store)){
     //     echo "empty";
     // };
     // echo $store;
+    
+    // var_dump($operator);
 
     
     // checking date values
