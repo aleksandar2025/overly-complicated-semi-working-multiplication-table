@@ -29,7 +29,7 @@ if(!isset($_POST['submit'])) {
     
     // doesn't work as an example on how not to do it (function/variable scope issue)
     
-    // switch($operator){
+    // switch(isset($operator)){
     //     case "+":
     //          $store = $result-> add();
     //         break;
@@ -46,13 +46,13 @@ if(!isset($_POST['submit'])) {
     
     // works
     
-    if(isset($operator) == "*"){
-         $store = $result-> multiply();
-    } elseif(isset($operator) == "-") {
-         $store = $result-> subtract();
-    } elseif(isset($operator) == "+"){
+    if($operator === "+"){
          $store = $result-> add();
-    } elseif(isset($operator) == "/"){
+    } elseif($operator === "-") {
+         $store = $result-> subtract();
+    } elseif($operator === "*"){
+         $store = $result-> multiply();
+    } elseif($operator === "/"){
          $store = $result-> divide();
     }
     
