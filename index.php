@@ -8,7 +8,7 @@
 <?php
 $cols = 11;
 $rows = 11;
-echo "<table border=\"1\">";
+echo "<table class='multiply' border=\"1\">";
     // operator for later reusability
     $operatorMultiply = '*';
     $operatorAdd = "+";
@@ -39,7 +39,7 @@ echo "</table>";
 $colsdivide = 101;
 $rowsdivide = 10;
 
-echo "<table border=\"1\"";
+echo "<table class='divide' border=\"1\"";
 
 
 for ($y = 1; $y < $rowsdivide; $y++){
