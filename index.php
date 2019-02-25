@@ -34,6 +34,38 @@ echo "<table border=\"1\">";
 
 echo "</table>";
 
+// DIVISION TABLE
+
+$colsdivide = 101;
+$rowsdivide = 10;
+
+echo "<table border=\"1\"";
+
+
+for ($y = 1; $y < $rowsdivide; $y++){
+             
+            echo'<tr>';
+
+            for ($t = 1; $t < $colsdivide; $t++){
+                  if($t % $y == 0) {
+                    if($y != 1){ 
+                        
+                echo "<form method='POST' action='includes/calculator.php'>";
+                
+                echo "<td><button type='submit' value='$t,$operatorDivide,$y' name='submit'>$t / $y</button></td>";
+                
+                echo "</form>";
+                    }
+                }
+            }
+           echo '</tr>'; 
+            
+        }
+
+echo "</table>";
+
+?>
+
 ?>
 
 
