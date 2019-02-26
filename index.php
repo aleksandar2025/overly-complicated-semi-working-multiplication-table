@@ -42,7 +42,7 @@ $rowsdivide = 10;
 echo "<table class='divide' border=\"1\"";
 
 
-for ($y = 1; $y < $rowsdivide; $y++){
+for ($y = 1; $y <= $rowsdivide; $y++){
              
             echo'<tr>';
 
