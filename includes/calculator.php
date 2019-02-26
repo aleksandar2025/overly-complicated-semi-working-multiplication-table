@@ -56,15 +56,17 @@ if(!isset($_POST['submit'])) {
          $store = $result-> divide();
     }
     
-    if(empty($factor1) || empty($factor2) || empty($operator) || empty($store) || empty($mysql_datetime)){
+   if(empty($factor1) || empty($factor2) || empty($operator) || empty($store) || empty($mysql_datetime)){
         
         header("Location: ../index.php?sql=error");
+        exit();
     } else {
         $sql = "INSERT INTO multiplication (factor1, factor2, operation, result, date) VALUES ('$factor1', '$factor2', '$operator', '$store', '$mysql_datetime');";
         mysqli_query($conn, $sql);
         
-        header("Location: ../index.php?multiply=success");
-        
+        // also stores data inside the url that can be accessed via get method
+        header("Location: ../index.php?multiply=success&factor1=$factor1&factor2=$factor2&operator=$operator&store=$store&mysql_datetime=$mysql_datetime");
+        exit();
     }
     
     
