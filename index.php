@@ -66,8 +66,35 @@ echo "</table>";
 
 ?>
 
-?>
 
+<!--error handling messages-->
+
+<?php
+
+    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if(strpos($fullUrl, "multiply=success") == true){
+        echo "Operation successfully stored. </br>";
+    // php script that echoes the values stored (not directly from the database)
+        if(isset($_GET['factor1'], $_GET['factor2'], $_GET['operator'], $_GET['store'], $_GET['mysql_datetime'])){
+            $factor1 = $_GET['factor1'];
+            $factor2 = $_GET['factor2'];
+            $operator = $_GET['operator'];
+            $store = $_GET['store'];
+            $mysql_datetime = $_GET['mysql_datetime'];
+            
+            echo "On this date $mysql_datetime an operatio was performed and this data was stored $factor1 $operator $factor2 = $store";
+            exit();
+}
+
+    } elseif(strpos($fullUrl, "multiply=error") == true){
+        echo "There was an error when submitting the form, try again.";
+        exit();
+        } elseif(strpos($fullUrl, "sql=error") == true){
+            echo "The operation wasn't stored, something went wrong.";
+            exit();
+        }
+
+?>
 
 
 <!--SCRIPT TO CHECK VALUE-->
