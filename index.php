@@ -8,7 +8,7 @@
 <?php
 $cols = 11;
 $rows = 11;
-echo "<table class='multiply' border=\"1\">";
+echo "<table border=\"1\">";
     // operator for later reusability
     $operatorMultiply = '*';
     $operatorAdd = "+";
@@ -31,15 +31,13 @@ echo "<table class='multiply' border=\"1\">";
            echo '</tr>'; 
 
         }
-
-echo "</table>";
-
-// DIVISION TABLE
+        
+        // DIVISION TABLE
 
 $colsdivide = 101;
 $rowsdivide = 10;
 
-echo "<table class='divide' border=\"1\"";
+echo "<table border=\"1\"";
 
 
 for ($y = 1; $y <= $rowsdivide; $y++){
@@ -66,7 +64,6 @@ echo "</table>";
 
 ?>
 
-
 <!--error handling messages-->
 
 <?php
@@ -82,17 +79,49 @@ echo "</table>";
             $store = $_GET['store'];
             $mysql_datetime = $_GET['mysql_datetime'];
             
-            echo "On this date $mysql_datetime an operatio was performed and this data was stored $factor1 $operator $factor2 = $store";
-            exit();
+            echo "On this date $mysql_datetime an operatio was performed and this data was stored $factor1 $operator $factor2 = $store </br>";
+            
 }
 
     } elseif(strpos($fullUrl, "multiply=error") == true){
-        echo "There was an error when submitting the form, try again.";
+        echo "There was an error when submitting the form, try again. </br>";
         exit();
         } elseif(strpos($fullUrl, "sql=error") == true){
-            echo "The operation wasn't stored, something went wrong.";
-            exit();
+            echo "The operation wasn't stored, something went wrong.</br>";
+            
         }
+        
+        //  === SQL QUERY === 
+        
+$sql = "SELECT * FROM multiplication";
+$result = mysqli_query($conn, $sql);
+$datas = array();
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+        $datas[] = $row;
+    }
+};
+
+// for each to print out the data
+echo "Previous operations </br>";
+
+foreach($datas as $data){
+    
+    echo $data['factor1'];
+    echo $data['operation'];
+    echo $data['factor2'];
+    echo " = ";
+    echo $data['result'];
+    echo "</br>";
+}
+
+
+?>
+
+
+
+<?php
+
 
 ?>
 
@@ -149,3 +178,4 @@ echo "</table>";
 
 
 <?php include"includes/footer.php" ?>
+
